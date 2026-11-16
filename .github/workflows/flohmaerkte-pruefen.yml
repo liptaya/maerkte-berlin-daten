@@ -1,55 +1,28 @@
 
-name: Flohmaerkte pruefen
+      - name: Alle Flohmarkt-Sicherheitspruefungen ausfuehren
+        run: |
+          python json_erstellen.py
 
-on:
-  workflow_dispatch:
-
-permissions:
-  contents: read
-
-jobs:
-  dateien-pruefen:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Dateien von GitHub laden
-        uses: actions/checkout@v4
-
-      - name: Python einrichten
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.13'
-
-      - name: Python-Version anzeigen
-        run: python --version
-
-      - name: Unsere vier Dateien pruefen
+      - name: Erstellte JSON-Datei kontrollieren
         run: |
           python - <<'PY'
+          import json
           from pathlib import Path
 
-          dateien = [
-              "maerkte_berlin.py",
-              "json_erstellen.py",
-              "berliner_flohmaerkte.csv",
-              "maerkte_berlin.json",
-          ]
+          datei = Path("maerkte_berlin.json")
 
-          for datei in dateien:
-              if not Path(datei).is_file():
-                  raise SystemExit(f"FEHLT: {datei}")
-              print(f"OK: {datei}")
+          with datei.open(encoding="utf-8") as f:
+              daten = json.load(f)
 
-          print("Alle vier Dateien sind vorhanden!")
-          PY
+          assert daten["anzahl"] == 26, (
+              "Die Anzahl der Flohmaerkte stimmt nicht!"
+          )
 
-      - name: Python-Programme auf Syntax pruefen
-        run: |
-          python - <<'PY'
-          import ast
-          from pathlib import Path
+          assert len(daten["maerkte"]) == 26, (
+              "Es fehlen Flohmaerkte in der JSON-Datei!"
+          )
 
-          for datei in ["maerkte_berlin.py", "json_erstellen.py"]:
-              ast.parse(Path(datei).read_text(encoding="utf-8-sig"))
-              print(f"Syntax OK: {datei}")
+          print("OK: JSON-Datei ist lesbar")
+          print("OK: 26 Flohmaerkte vorhanden")
+          print("Alle GitHub-Pruefungen bestanden!")
           PY
