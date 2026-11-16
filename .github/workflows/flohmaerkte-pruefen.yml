@@ -3,6 +3,11 @@ name: Flohmaerkte pruefen
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: '0 7 * * *'
+
+on:
+  workflow_dispatch:
 
 permissions:
   contents: read
