@@ -58,6 +58,10 @@ jobs:
               print(f"Syntax OK: {datei}")
           PY
 
+      - name: Online nach Flohmarkt-Aenderungen suchen
+        run: |
+          python maerkte_berlin.py
+
       - name: Alle Flohmarkt-Sicherheitspruefungen ausfuehren
         run: |
           python json_erstellen.py
