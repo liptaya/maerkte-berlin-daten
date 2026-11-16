@@ -1,0 +1,467 @@
+{
+  "projekt": "Märkte Berlin",
+  "version": 2,
+  "erstellt_am": "2026-11-15T21:20:59",
+  "anzahl": 26,
+  "maerkte": [
+    {
+      "name": "Flohmarkt im Mauerpark",
+      "adresse": "Bernauer Straße 63-64 13355 Berlin",
+      "oeffnungszeiten": "10 bis 18 Uhr",
+      "wochentage": [
+        6
+      ],
+      "einzeltermine": [],
+      "ausnahmen": [],
+      "pruefhinweise": [],
+      "termintext": "Jeden Sonntag",
+      "weitere_terminangaben": "Termine: Jeden Sonntag | Öffnungszeiten | 10 bis 18 Uhr | Eintritt",
+      "status": "regelmaessig_ungeprueft",
+      "quelle": "https://www.berlin.de/special/shopping/flohmaerkte/1998222-1724959-flohmarkt-am-mauerpark.html",
+      "aktualisierung": "19. August 2026"
+    },
+    {
+      "name": "Flohmarkt am Boxhagener Platz",
+      "adresse": "Boxhagener Platz 1 10245 Berlin",
+      "oeffnungszeiten": "10 bis 18 Uhr",
+      "wochentage": [
+        6
+      ],
+      "einzeltermine": [],
+      "ausnahmen": [],
+      "pruefhinweise": [],
+      "termintext": "Jeden Sonntag",
+      "weitere_terminangaben": "Termine: Jeden Sonntag | Öffnungszeiten | 10 bis 18 Uhr | Eintritt",
+      "status": "regelmaessig_ungeprueft",
+      "quelle": "https://www.berlin.de/special/shopping/flohmaerkte/1998240-1724959-flohmarkt-am-boxhagener-platz.html",
+      "aktualisierung": "27. August 2026"
+    },
+    {
+      "name": "Trödelmarkt Straße des 17. Juni",
+      "adresse": "Straße des 17. Juni 106 10623 Berlin",
+      "oeffnungszeiten": "Sommer: 9 bis 17 Uhr",
+      "wochentage": [
+        5,
+        6
+      ],
+      "einzeltermine": [],
+      "ausnahmen": [],
+      "pruefhinweise": [],
+      "termintext": "Samstag und Sonntag",
+      "weitere_terminangaben": "Termine: Samstag und Sonntag | Öffnungszeiten | Sommer: 9 bis 17 Uhr | Winter: 9 bis 16 Uhr",
+      "status": "regelmaessig_ungeprueft",
+      "quelle": "https://www.berlin.de/special/shopping/flohmaerkte/1998184-1724959-troedel-und-kunstmarkt-strasse-des-17-ju.html",
+      "aktualisierung": "27. August 2026"
+    },
+    {
+      "name": "Flohmarkt am Rathaus Schöneberg",
+      "adresse": "John-F. -Kennedy-Platz 1 10825 Berlin",
+      "oeffnungszeiten": "8 bis 16 Uhr",
+      "wochentage": [
+        5,
+        6
+      ],
+      "einzeltermine": [],
+      "ausnahmen": [
+        "2026-09-19",
+        "2026-09-20",
+        "2026-11-15",
+        "2026-11-22"
+      ],
+      "pruefhinweise": [
+        "Totensonntag prüfen",
+        "Volkstrauertag prüfen"
+      ],
+      "termintext": "Jeden Samstag und Sonntag (außer 19.09. und 20.09.2026 - Berliner Wahlen, 15.11.2026 - Volkstrauertag und 22.11. 2026 - Totensonntag)",
+      "weitere_terminangaben": "Termine: Jeden Samstag und Sonntag (außer 19.09. und 20.09.2026 - Berliner Wahlen, 15.11.2026 - Volkstrauertag und 22.11. 2026 - Totensonntag) | Öffnungszeiten | 8 bis 16 Uhr | Eintritt",
+      "status": "regelmaessig_ungeprueft",
+      "quelle": "https://www.berlin.de/special/shopping/flohmaerkte/1998231-1724959-flohmarkt-schoeneberg.html",
+      "aktualisierung": "28. Oktober 2026"
+    },
+    {
+      "name": "RAW-Flohmarkt",
+      "adresse": "Revaler Straße 99 10245 Berlin",
+      "oeffnungszeiten": "8 bis 17 Uhr",
+      "wochentage": [
+        6
+      ],
+      "einzeltermine": [],
+      "ausnahmen": [],
+      "pruefhinweise": [],
+      "termintext": "Jeden Sonntag",
+      "weitere_terminangaben": "Termine: Jeden Sonntag | Öffnungszeiten | 8 bis 17 Uhr | Eintritt",
+      "status": "regelmaessig_ungeprueft",
+      "quelle": "https://www.berlin.de/special/shopping/flohmaerkte/3130505-1724959-rawflohmarkt.html",
+      "aktualisierung": "27. August 2026"
+    },
+    {
+      "name": "Flohmarkt am Arkonaplatz",
+      "adresse": "Arkonaplatz 1 10435 Berlin",
+      "oeffnungszeiten": "Sommer 10 bis 17 Uhr, Winter 10 bis 16 Uhr",
+      "wochentage": [
+        6
+      ],
+      "einzeltermine": [],
+      "ausnahmen": [],
+      "pruefhinweise": [
+        "Totensonntag prüfen"
+      ],
+      "termintext": "Jeden Sonntag außer am Totensonntag",
+      "weitere_terminangaben": "Termine: Jeden Sonntag außer am Totensonntag | Öffnungszeiten | Sommer 10 bis 17 Uhr, Winter 10 bis 16 Uhr | Eintritt",
+      "status": "regelmaessig_ungeprueft",
+      "quelle": "https://www.berlin.de/special/shopping/flohmaerkte/1998213-1724959-flohmarkt-am-arkonaplatz.html",
+      "aktualisierung": "27. August 2026"
+    },
+    {
+      "name": "Flohmarkt am Fehrbelliner Platz",
+      "adresse": "Fehrbelliner Platz 1 10707 Berlin",
+      "oeffnungszeiten": "10 bis 16 Uhr",
+      "wochentage": [
+        5,
+        6
+      ],
+      "einzeltermine": [],
+      "ausnahmen": [],
+      "pruefhinweise": [
+        "Totensonntag prüfen",
+        "Volkstrauertag prüfen",
+        "Weihnachtsregel prüfen"
+      ],
+      "termintext": "Jeden Samstag und Sonntag plus Ostermontag, 1. Mai und Pfingstmontag",
+      "weitere_terminangaben": "Termine: Jeden Samstag und Sonntag plus Ostermontag, 1. Mai und Pfingstmontag | Geschlossen am Volkstrauertag, dem Totensonntag und zwischen Weihnachten und Silvester | Öffnungszeiten | 10 bis 16 Uhr",
+      "status": "regelmaessig_ungeprueft",
+      "quelle": "https://www.berlin.de/special/shopping/flohmaerkte/1998531-1724959-flohmarkt-am-fehrbelliner-platz.html",
+      "aktualisierung": "27. August 2026"
+    },
+    {
+      "name": "Trödelmarkt am Marheinekeplatz",
+      "adresse": "Bergmannstraße 106 10961 Berlin",
+      "oeffnungszeiten": "Samstag 10 bis 16 Uhr, Sonntag 11 bis 17 Uhr (Sommerzeit) und 11 bis 16 Uhr (Winterzeit)",
+      "wochentage": [
+        5,
+        6
+      ],
+      "einzeltermine": [],
+      "ausnahmen": [],
+      "pruefhinweise": [
+        "Sommer-/Winterzeiten prüfen"
+      ],
+      "termintext": "Samstag und Sonntag",
+      "weitere_terminangaben": "Termine: Samstag und Sonntag | Öffnungszeiten | Samstag 10 bis 16 Uhr, Sonntag 11 bis 17 Uhr (Sommerzeit) und 11 bis 16 Uhr (Winterzeit) | Eintritt",
+      "status": "regelmaessig_ungeprueft",
+      "quelle": "https://www.berlin.de/special/shopping/flohmaerkte/2222392-1724959-flohmarkt-am-marheinekeplatz-in-der-berg.html",
+      "aktualisierung": "30. Juli 2026"
+    },
+    {
+      "name": "Antik- und Buchmarkt am Bode-Museum",
+      "adresse": "Am Kupfergraben 1 10117 Berlin",
+      "oeffnungszeiten": "10 bis 17 Uhr",
+      "wochentage": [
+        5,
+        6
+      ],
+      "einzeltermine": [],
+      "ausnahmen": [],
+      "pruefhinweise": [
+        "Feiertagsregel prüfen"
+      ],
+      "termintext": "Jeden Samstag, Sonntag und an Feiertagen",
+      "weitere_terminangaben": "Termine: Jeden Samstag, Sonntag und an Feiertagen | Öffnungszeiten | 10 bis 17 Uhr | Eintritt",
+      "status": "regelmaessig_ungeprueft",
+      "quelle": "https://www.berlin.de/special/shopping/flohmaerkte/1998194-1724959-antik-und-buchmarkt-am-bodemuseum.html",
+      "aktualisierung": "15. Juli 2026"
+    },
+    {
+      "name": "Antikmarkt am Ostbahnhof",
+      "adresse": "Erich-Steinfurth-Straße 1 10243 Berlin",
+      "oeffnungszeiten": "9 bis 17 Uhr",
+      "wochentage": [
+        6
+      ],
+      "einzeltermine": [],
+      "ausnahmen": [],
+      "pruefhinweise": [
+        "Karlshorst-Ausnahme prüfen"
+      ],
+      "termintext": "Jeden Sonntag (außer an den Sonntagen an denen der Antikflohmarkt in Karlshorst stattfindet)",
+      "weitere_terminangaben": "Termine: Jeden Sonntag (außer an den Sonntagen an denen der Antikflohmarkt in Karlshorst stattfindet) | Öffnungszeiten | 9 bis 17 Uhr | Eintritt",
+      "status": "regelmaessig_ungeprueft",
+      "quelle": "https://www.berlin.de/special/shopping/flohmaerkte/1998249-1724959-grosser-antikmarkt-am-ostbahnhof.html",
+      "aktualisierung": "27. August 2026"
+    },
+    {
+      "name": "Trödelmarkt Goerzallee",
+      "adresse": "Goerzallee 189 14167 Berlin",
+      "oeffnungszeiten": "7 bis 14 Uhr",
+      "wochentage": [
+        6
+      ],
+      "einzeltermine": [],
+      "ausnahmen": [],
+      "pruefhinweise": [
+        "Totensonntag prüfen",
+        "Winterpause prüfen"
+      ],
+      "termintext": "Jeden Sonntag",
+      "weitere_terminangaben": "Termine: Jeden Sonntag | Winterpause vom Totensonntag bis Ende Februar | Öffnungszeiten | 7 bis 14 Uhr",
+      "status": "regelmaessig_ungeprueft",
+      "quelle": "https://www.berlin.de/special/shopping/flohmaerkte/1998295-1724959-antik-und-troedelmarkt-goerzallee.html",
+      "aktualisierung": "23. Juli 2026"
+    },
+    {
+      "name": "Leo Flohmarkt am Leopoldplatz",
+      "adresse": "Leopoldplatz 1 13353 Berlin",
+      "oeffnungszeiten": "10 bis 16 Uhr",
+      "wochentage": [
+        5
+      ],
+      "einzeltermine": [],
+      "ausnahmen": [],
+      "pruefhinweise": [],
+      "termintext": "Jeden Samstag",
+      "weitere_terminangaben": "Termine: Jeden Samstag | Öffnungszeiten | 10 bis 16 Uhr | Eintritt",
+      "status": "regelmaessig_ungeprueft",
+      "quelle": "https://www.berlin.de/special/shopping/flohmaerkte/2068453-1724959-flohmarkt-am-leopoldplatz.html",
+      "aktualisierung": "25. August 2026"
+    },
+    {
+      "name": "Berliner Fahrradmarkt 2026",
+      "adresse": "",
+      "oeffnungszeiten": "10 bis 15 Uhr",
+      "wochentage": [],
+      "einzeltermine": [],
+      "ausnahmen": [],
+      "pruefhinweise": [],
+      "termintext": "",
+      "weitere_terminangaben": "",
+      "status": "termine_unbekannt",
+      "quelle": "https://www.berlin.de/special/shopping/flohmaerkte/4409904-1724959-fahrradmarkt-berlin.html",
+      "aktualisierung": "9. November 2026"
+    },
+    {
+      "name": "Schoeneboerg Flowmarkt",
+      "adresse": "Crellestraße 24 10827 Berlin",
+      "oeffnungszeiten": "10 bis 17 Uhr",
+      "wochentage": [],
+      "einzeltermine": [
+        "2026-04-26",
+        "2026-05-10",
+        "2026-05-24",
+        "2026-06-07",
+        "2026-06-21",
+        "2026-07-05",
+        "2026-07-19",
+        "2026-08-30",
+        "2026-09-13",
+        "2026-09-27",
+        "2026-10-11",
+        "2026-10-25",
+        "2026-11-08",
+        "2026-11-22",
+        "2026-12-06"
+      ],
+      "ausnahmen": [],
+      "pruefhinweise": [],
+      "termintext": "",
+      "weitere_terminangaben": "Termine 2026: 26. April, 10. Mai, 24. Mai, 7. Juni, 21. Juni, 05. Juli, 19. Juli, 30. August, 13. September, 27. September, 11. Oktober, 25. Oktober, 8. November, 22. November, 6. Dezember 2026 (jeden 2. Sonntag) | Öffnungszeiten | 10 bis 17 Uhr | Eintritt",
+      "status": "einzeltermine_ungeprueft",
+      "quelle": "https://www.berlin.de/special/shopping/flohmaerkte/6875800-1724959-schoeneboerg-flowmarkt.html",
+      "aktualisierung": "10. November 2026"
+    },
+    {
+      "name": "Nowkoelln Flowmarkt",
+      "adresse": "Maybachufer 36 12047 Berlin",
+      "oeffnungszeiten": "10 bis 17 Uhr",
+      "wochentage": [],
+      "einzeltermine": [
+        "2026-08-23",
+        "2026-09-06",
+        "2026-09-20",
+        "2026-10-04",
+        "2026-11-01",
+        "2026-11-29"
+      ],
+      "ausnahmen": [],
+      "pruefhinweise": [],
+      "termintext": "",
+      "weitere_terminangaben": "Termine 2026: In der Regel jeden zweiten Sonntag von Ende März bis Dezember. Nächste Termine 2026: 23. August, 6. September, 20. September, 4. Oktober, 1. November, 29. November | Öffnungszeiten | 10 bis 17 Uhr | Eintritt",
+      "status": "einzeltermine_ungeprueft",
+      "quelle": "https://www.berlin.de/special/shopping/flohmaerkte/1762126-1724959-nowkoelln-flowmarkt.html",
+      "aktualisierung": "3. November 2026"
+    },
+    {
+      "name": "Onkel Toms Trödel",
+      "adresse": "Onkel-Tom-Straße 99 14169 Berlin",
+      "oeffnungszeiten": "10 bis 16 Uhr",
+      "wochentage": [],
+      "einzeltermine": [
+        "2026-11-01",
+        "2026-12-13"
+      ],
+      "ausnahmen": [],
+      "pruefhinweise": [],
+      "termintext": "",
+      "weitere_terminangaben": "Termine 2026: 1. November, 13. Dezember | Öffnungszeiten | 10 bis 16 Uhr | Eintritt",
+      "status": "einzeltermine_ungeprueft",
+      "quelle": "https://www.berlin.de/special/shopping/flohmaerkte/10681909-1724959-onkel-toms-troedel.html",
+      "aktualisierung": "3. November 2026"
+    },
+    {
+      "name": "Gütermarkt",
+      "adresse": "Siemensstraße 27 10551 Berlin",
+      "oeffnungszeiten": "In der Regel von 11 bis 19 Uhr",
+      "wochentage": [],
+      "einzeltermine": [
+        "2026-05-03",
+        "2026-07-05",
+        "2026-09-13",
+        "2026-11-01",
+        "2026-12-13"
+      ],
+      "ausnahmen": [],
+      "pruefhinweise": [],
+      "termintext": "",
+      "weitere_terminangaben": "Termine 2026: 3. Mai, 5. Juli, 13. September, 1. November und 13. Dezember 2026 | Öffnungszeiten | In der Regel von 11 bis 19 Uhr | Eintritt",
+      "status": "einzeltermine_ungeprueft",
+      "quelle": "https://www.berlin.de/special/shopping/flohmaerkte/5468838-1724959-guetermarkt-in-moabit.html",
+      "aktualisierung": "3. November 2026"
+    },
+    {
+      "name": "Mädchenflohmarkt",
+      "adresse": "Sredzkistraße 1 10435 Berlin",
+      "oeffnungszeiten": "",
+      "wochentage": [],
+      "einzeltermine": [],
+      "ausnahmen": [],
+      "pruefhinweise": [],
+      "termintext": "",
+      "weitere_terminangaben": "",
+      "status": "termine_unbekannt",
+      "quelle": "https://www.berlin.de/special/shopping/flohmaerkte/4287096-1724959-beauty-jungle-maedchenflohmarkt.html",
+      "aktualisierung": "5. November 2026"
+    },
+    {
+      "name": "Fahrradmarkt",
+      "adresse": "Winterfeldtplatz 1 10781 Berlin",
+      "oeffnungszeiten": "Noch nicht bekannt",
+      "wochentage": [],
+      "einzeltermine": [],
+      "ausnahmen": [],
+      "pruefhinweise": [],
+      "termintext": "",
+      "weitere_terminangaben": "Termine 2027: Noch nicht bekannt | Öffnungszeiten | Noch nicht bekannt | Eintritt",
+      "status": "termine_unbekannt",
+      "quelle": "https://www.berlin.de/special/shopping/flohmaerkte/7403870-1724959-fietsenboerse-berliner-fahrradmarkt.html",
+      "aktualisierung": "30. Oktober 2026"
+    },
+    {
+      "name": "Baby- und Kinderflohmarkt auf dem Breitenbachplatz",
+      "adresse": "Breitenbachplatz 12 14195 Berlin",
+      "oeffnungszeiten": "10 bis 14 Uhr",
+      "wochentage": [],
+      "einzeltermine": [],
+      "ausnahmen": [],
+      "pruefhinweise": [],
+      "termintext": "",
+      "weitere_terminangaben": "Termine 2027: Noch nicht bekannt | Öffnungszeiten | 10 bis 14 Uhr | Eintritt",
+      "status": "termine_unbekannt",
+      "quelle": "https://www.berlin.de/special/shopping/flohmaerkte/4791167-1724959-baby-und-kinderflohmarkt-auf-dem-breiten.html",
+      "aktualisierung": "3. November 2026"
+    },
+    {
+      "name": "Anziehmarkt",
+      "adresse": "Breitenbachplatz 12 14195 Berlin",
+      "oeffnungszeiten": "10:30 bis 14:30 Uhr",
+      "wochentage": [],
+      "einzeltermine": [],
+      "ausnahmen": [],
+      "pruefhinweise": [],
+      "termintext": "",
+      "weitere_terminangaben": "Termine 2027: Noch nicht bekannt | Öffnungszeiten | 10:30 bis 14:30 Uhr | Eintritt",
+      "status": "termine_unbekannt",
+      "quelle": "https://www.berlin.de/special/shopping/flohmaerkte/2564740-1724959-flohmarkt-auf-dem-breitenbachplatz.html",
+      "aktualisierung": "9. November 2026"
+    },
+    {
+      "name": "KiezKram Flohmarkt",
+      "adresse": "Heynstraße 15 13187 Berlin",
+      "oeffnungszeiten": "Noch nicht bekannt",
+      "wochentage": [],
+      "einzeltermine": [],
+      "ausnahmen": [],
+      "pruefhinweise": [],
+      "termintext": "",
+      "weitere_terminangaben": "Termine 2027: Noch nicht bekannt | Location | Fritz Heyn Höfe | Öffnungszeiten",
+      "status": "termine_unbekannt",
+      "quelle": "https://www.berlin.de/special/shopping/flohmaerkte/10640461-1724959-kiezkram-flohmarkt.html",
+      "aktualisierung": "10. November 2026"
+    },
+    {
+      "name": "Trödelmarkt auf dem Gelände der ufaFabrik",
+      "adresse": "Viktoriastraße 10-18 12105 Berlin",
+      "oeffnungszeiten": "11 bis 14 Uhr",
+      "wochentage": [],
+      "einzeltermine": [
+        "2027-04-11",
+        "2027-06-06"
+      ],
+      "ausnahmen": [],
+      "pruefhinweise": [],
+      "termintext": "",
+      "weitere_terminangaben": "Termine 2027: 11. April und 6. Juni | Öffnungszeiten | 11 bis 14 Uhr | Eintritt",
+      "status": "einzeltermine_ungeprueft",
+      "quelle": "https://www.berlin.de/special/shopping/flohmaerkte/4897006-1724959-troedelmarkt-in-der-ufafabrik.html",
+      "aktualisierung": "20. Oktober 2026"
+    },
+    {
+      "name": "Jordan Flohmarkt",
+      "adresse": "Lohmühlenstraße / Ecke Jordanstraße 12435 Berlin",
+      "oeffnungszeiten": "10 bis 17 Uhr",
+      "wochentage": [],
+      "einzeltermine": [],
+      "ausnahmen": [],
+      "pruefhinweise": [],
+      "termintext": "",
+      "weitere_terminangaben": "Termine 2027: Noch nicht bekannt | Öffnungszeiten | 10 bis 17 Uhr | Eintritt",
+      "status": "termine_unbekannt",
+      "quelle": "https://www.berlin.de/special/shopping/flohmaerkte/9759451-1724959-jordan-flohmarkt.html",
+      "aktualisierung": "30. Oktober 2026"
+    },
+    {
+      "name": "Flohmarkt Pankow",
+      "adresse": "Breite Str. 31 13187 Berlin",
+      "oeffnungszeiten": "10 bis 17 Uhr",
+      "wochentage": [],
+      "einzeltermine": [],
+      "ausnahmen": [],
+      "pruefhinweise": [],
+      "termintext": "",
+      "weitere_terminangaben": "Termine 2027: Noch nicht bekannt | Öffnungszeiten | 10 bis 17 Uhr | Eintritt",
+      "status": "termine_unbekannt",
+      "quelle": "https://www.berlin.de/special/shopping/flohmaerkte/10528720-1724959-flohmarkt-pankow.html",
+      "aktualisierung": "3. November 2026"
+    },
+    {
+      "name": "Riesenflohmarkt Trabrennbahn Karlshorst 2027",
+      "adresse": "Treskowallee 129 10318 Berlin",
+      "oeffnungszeiten": "Samstag und Sonntag von 9 bis 17 Uhr",
+      "wochentage": [],
+      "einzeltermine": [
+        "2027-05-06",
+        "2027-05-07",
+        "2027-05-08",
+        "2027-05-09",
+        "2027-10-01",
+        "2027-10-02",
+        "2027-10-03"
+      ],
+      "ausnahmen": [],
+      "pruefhinweise": [],
+      "termintext": "",
+      "weitere_terminangaben": "Termine 2027: 6. bis 9. Mai 2027 zu Himmelfahrt | 1. bis 3. Oktober 2027 zum Tag der Deutschen Einheit und 15. Designbörse Berlin | Öffnungszeiten | Samstag und Sonntag von 9 bis 17 Uhr",
+      "status": "einzeltermine_ungeprueft",
+      "quelle": "https://www.berlin.de/special/shopping/flohmaerkte/7377869-1724959-riesenflohmarkt-trabrennbahn-karlshorst.html",
+      "aktualisierung": "9. November 2026"
+    }
+  ]
+}
