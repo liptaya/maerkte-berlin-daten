@@ -3,10 +3,12 @@ import csv
 import json
 import re
 import os
+import sys
 from datetime import date, timedelta, datetime
 from pathlib import Path
 
-ORDNER = Path(r"C:\MaerkteBerlinPython")
+# Funktioniert auf Windows und GitHub
+ORDNER = Path(__file__).resolve().parent
 CSV_DATEI = ORDNER / "berliner_flohmaerkte.csv"
 JSON_DATEI = ORDNER / "maerkte_berlin.json"
 
@@ -53,7 +55,6 @@ def erkenne_wochentage(text):
 def erkenne_datumsbereiche(text):
     daten = set()
 
-    # Beispiel: 6. bis 9. Mai 2027
     muster = (
         r"\b(\d{1,2})\.\s*bis\s*"
         r"(\d{1,2})\.\s*"
@@ -85,7 +86,6 @@ def erkenne_datumsbereiche(text):
 def erkenne_numerische_daten(text):
     daten = set()
 
-    # Beispiel: 19.09. und 20.09.2026
     muster_paar = (
         r"\b(\d{1,2})\.\s*(\d{1,2})\.\s*"
         r"und\s*"
@@ -93,9 +93,7 @@ def erkenne_numerische_daten(text):
         r"(20\d{2})\b"
     )
 
-    for treffer in re.finditer(
-        muster_paar, text
-    ):
+    for treffer in re.finditer(muster_paar, text):
         t1, m1, t2, m2, jahr = map(
             int, treffer.groups()
         )
@@ -106,15 +104,12 @@ def erkenne_numerische_daten(text):
             if wert:
                 daten.add(wert.isoformat())
 
-    # Beispiel: 22.11.2026
     muster_einzel = (
         r"\b(\d{1,2})\.\s*(\d{1,2})\.\s*"
         r"(20\d{2})\b"
     )
 
-    for treffer in re.finditer(
-        muster_einzel, text
-    ):
+    for treffer in re.finditer(muster_einzel, text):
         tag, monat, jahr = map(
             int, treffer.groups()
         )
@@ -152,8 +147,6 @@ def erkenne_monatsdaten(text, jahr):
 def erkenne_einzeltermine(text):
     daten = set()
 
-    # Jahresabschnitte aus der CSV:
-    # "Termine 2026: 1. November, 13. Dezember"
     abschnitte = re.findall(
         r"Termine\s+(20\d{2}):\s*"
         r"(.*?)(?=\s*\|\s*|$)",
@@ -178,7 +171,6 @@ def erkenne_einzeltermine(text):
             )
         )
 
-    # Auch vollständige Datumsbereiche erkennen.
     daten.update(erkenne_datumsbereiche(text))
 
     return sorted(daten)
@@ -187,8 +179,6 @@ def erkenne_einzeltermine(text):
 def erkenne_ausnahmen(text):
     daten = erkenne_numerische_daten(text)
 
-    # Zusätzlich einzelne Datumsangaben
-    # wie "15. November 2026".
     muster = (
         r"\b(\d{1,2})\.\s*"
         r"(" + MONATSNAMEN + r")\s+"
@@ -285,13 +275,13 @@ def verarbeite_markt(zeile):
 
 
 def main():
-    print("🛍️ MÄRKTE BERLIN")
-    print("Schritt 14: Datumsprüfung\n")
+    print("MÄRKTE BERLIN")
+    print("Datumsprüfung\n")
 
     if not CSV_DATEI.exists():
-        print("CSV-Datei fehlt:")
-        print(CSV_DATEI)
-        return
+        raise FileNotFoundError(
+            f"CSV-Datei fehlt: {CSV_DATEI}"
+        )
 
     maerkte = []
 
@@ -312,9 +302,10 @@ def main():
             )
 
     if len(maerkte) < 20:
-        print("SICHERHEIT: Zu wenige Märkte!")
-        print("JSON-Datei wurde nicht ersetzt.")
-        return
+        raise ValueError(
+            "SICHERHEIT: Weniger als 20 Märkte. "
+            "JSON-Datei wird nicht ersetzt."
+        )
 
     ausgabe = {
         "projekt": "Märkte Berlin",
@@ -365,8 +356,8 @@ def main():
             print("Prüfhinweise:", markt["pruefhinweise"])
 
     print("\nHinweis:")
-    print("Die Daten müssen noch geprüft werden,")
-    print("bevor Android sie als sichere Termine zeigt.")
+    print("Die Termine sind noch nicht vollständig geprüft.")
+    print("Keine automatische Veröffentlichung aktiv.")
 
 
 try:
@@ -374,7 +365,10 @@ try:
 
 except Exception as fehler:
     print("\nFEHLER:", fehler)
+    if not sys.stdin.isatty():
+        raise
 
 finally:
     print("\n--------------------------------")
-    input("Zum Beenden bitte ENTER drücken ...")
+    if sys.stdin.isatty():
+        input("Zum Beenden bitte ENTER drücken ...")
