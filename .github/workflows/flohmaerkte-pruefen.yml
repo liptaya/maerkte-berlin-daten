@@ -1,4 +1,3 @@
-
 name: Flohmaerkte pruefen
 
 on:
@@ -8,6 +7,7 @@ on:
 
 permissions:
   contents: read
+  issues: write
 
 jobs:
   dateien-pruefen:
@@ -52,15 +52,14 @@ jobs:
           from pathlib import Path
 
           for datei in ["maerkte_berlin.py", "json_erstellen.py"]:
-              ast.parse(
-                  Path(datei).read_text(encoding="utf-8-sig")
-              )
+              ast.parse(Path(datei).read_text(encoding="utf-8-sig"))
               print(f"Syntax OK: {datei}")
           PY
 
       - name: Online nach Flohmarkt-Aenderungen suchen
         run: |
-          python maerkte_berlin.py
+          set -o pipefail
+          python maerkte_berlin.py | tee online-pruefung.log
 
       - name: Alle Flohmarkt-Sicherheitspruefungen ausfuehren
         run: |
@@ -89,3 +88,52 @@ jobs:
           print("OK: 26 Flohmaerkte vorhanden")
           print("Alle GitHub-Pruefungen bestanden!")
           PY
+
+      - name: Aenderungen als GitHub-Hinweis melden
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const crypto = require('crypto');
+            const protokoll = fs.readFileSync('online-pruefung.log', 'utf8');
+            const zeilen = protokoll.split(/\r?\n/);
+            const meldungen = zeilen.filter(zeile =>
+              zeile.startsWith('NEU:') ||
+              zeile.startsWith('GEÄNDERT:') ||
+              zeile.startsWith('NICHT MEHR GEFUNDEN')
+            );
+
+            if (meldungen.length === 0) {
+              core.info('Keine Aenderungen zu melden.');
+              return;
+            }
+
+            const fingerprint = crypto.createHash('sha256')
+              .update([...meldungen].sort().join('\n'))
+              .digest('hex').slice(0, 12);
+            const titel = `Flohmarkt-Aenderungen pruefen (${fingerprint})`;
+            const { owner, repo } = context.repo;
+            const vorhandene = await github.paginate(github.rest.issues.listForRepo, {
+              owner, repo, state: 'all', per_page: 100
+            });
+
+            if (vorhandene.some(issue => issue.title === titel)) {
+              core.info('Diese Aenderungen wurden bereits gemeldet.');
+              return;
+            }
+
+            const inhalt = [
+              'Die automatische Online-Pruefung hat folgende Unterschiede gefunden:',
+              '',
+              ...meldungen.map(zeile => `- ${zeile}`),
+              '',
+              '**Wichtig:** Dies sind nur Hinweise, keine bestaetigten Termine oder Absagen.',
+              'Bitte die offiziellen Quellen pruefen, bevor Daten freigegeben werden.',
+              '',
+              `Prueflauf: ${context.serverUrl}/${owner}/${repo}/actions/runs/${context.runId}`
+            ].join('\n');
+
+            const issue = await github.rest.issues.create({
+              owner, repo, title: titel, body: inhalt
+            });
+            core.info(`Pruefhinweis erstellt: ${issue.data.html_url}`);
