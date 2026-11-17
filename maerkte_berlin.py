@@ -4,6 +4,7 @@ import sys
 import time
 from pathlib import Path
 from html.parser import HTMLParser
+from urllib.error import HTTPError, URLError
 from urllib.parse import urljoin, urlparse, urldefrag
 from urllib.request import Request, urlopen
 
@@ -13,6 +14,10 @@ VORSCHAU = ORDNER / 'berliner_flohmaerkte_neu.csv'
 STARTSEITE = 'https://www.berlin.de/special/shopping/flohmaerkte/'
 SPALTEN = ['Name', 'Termine', 'Weitere Terminangaben', 'Öffnungszeiten', 'Adresse', 'Aktualisierung', 'Status', 'Quelle']
 MINDESTANZAHL = 20
+PAUSE_ZWISCHEN_SEITEN = 3
+MAX_VERSUCHE = 4
+WARTEZEITEN = (15, 30, 60)
+
 
 class SeitenLeser(HTMLParser):
     def __init__(self):
@@ -51,12 +56,33 @@ class SeitenLeser(HTMLParser):
 
 
 def lade_seite(url):
-    anfrage = Request(url, headers={'User-Agent': 'Mozilla/5.0 (compatible; MaerkteBerlin/1.0)'})
-    with urlopen(anfrage, timeout=25) as antwort:
-        html = antwort.read().decode('utf-8', errors='replace')
-    leser = SeitenLeser()
-    leser.feed(html)
-    return leser
+    for versuch in range(1, MAX_VERSUCHE + 1):
+        anfrage = Request(url, headers={
+            'User-Agent': 'MaerkteBerlin/1.1 (freundliche, seltene Marktpruefung)',
+            'Accept': 'text/html',
+        })
+        try:
+            with urlopen(anfrage, timeout=30) as antwort:
+                html = antwort.read().decode('utf-8', errors='replace')
+            leser = SeitenLeser()
+            leser.feed(html)
+            return leser
+        except HTTPError as fehler:
+            # Nur voruebergehende Serverfehler erneut versuchen.
+            if fehler.code not in (429, 500, 502, 503, 504) or versuch == MAX_VERSUCHE:
+                raise
+            wartezeit = WARTEZEITEN[versuch - 1]
+            retry_after = fehler.headers.get('Retry-After')
+            if retry_after and retry_after.isdigit():
+                wartezeit = max(wartezeit, min(int(retry_after), 300))
+            print(f'  HTTP {fehler.code}: Versuch {versuch}/{MAX_VERSUCHE}. Warte {wartezeit} Sekunden ...', flush=True)
+            time.sleep(wartezeit)
+        except (URLError, TimeoutError) as fehler:
+            if versuch == MAX_VERSUCHE:
+                raise
+            wartezeit = WARTEZEITEN[versuch - 1]
+            print(f'  Verbindung unterbrochen: {fehler}. Warte {wartezeit} Sekunden ...', flush=True)
+            time.sleep(wartezeit)
 
 
 def finde_marktlinks(leser):
@@ -135,10 +161,17 @@ def lese_bisherige_daten():
 
 
 def schreibe_vorschau(zeilen):
-    with VORSCHAU.open('w', newline='', encoding='utf-8-sig') as datei:
-        schreiber = csv.DictWriter(datei, fieldnames=SPALTEN, delimiter=';')
-        schreiber.writeheader()
-        schreiber.writerows(zeilen)
+    # Erst vollstaendig schreiben, dann die Vorschau austauschen.
+    temporaer = VORSCHAU.with_suffix('.csv.tmp')
+    try:
+        with temporaer.open('w', newline='', encoding='utf-8-sig') as datei:
+            schreiber = csv.DictWriter(datei, fieldnames=SPALTEN, delimiter=';')
+            schreiber.writeheader()
+            schreiber.writerows(zeilen)
+        temporaer.replace(VORSCHAU)
+    finally:
+        if temporaer.exists():
+            temporaer.unlink()
 
 
 def main():
@@ -159,10 +192,11 @@ def main():
         except Exception as ausnahme:
             fehler.append(f'{url}: {ausnahme}')
             print('  Abruf fehlgeschlagen:', ausnahme, flush=True)
-        time.sleep(1)
+        if nummer < len(links):
+            time.sleep(PAUSE_ZWISCHEN_SEITEN)
 
     if fehler or len(ergebnisse) < MINDESTANZAHL:
-        raise RuntimeError(f'{len(fehler)} Seitenfehler, {len(ergebnisse)} erfolgreiche Märkte. Keine Vorschau gespeichert.')
+        raise RuntimeError(f'{len(fehler)} Seitenfehler, {len(ergebnisse)} erfolgreiche Märkte. Keine neue Vorschau gespeichert.')
 
     alt = {z['Quelle']: z for z in bisher if z.get('Quelle')}
     neu = {z['Quelle']: z for z in ergebnisse if z.get('Quelle')}
@@ -178,7 +212,7 @@ def main():
     schreibe_vorschau(ergebnisse)
     print('\nERGEBNIS – NUR ZUR PRÜFUNG')
     print('Bisherige Märkte:', len(bisher))
-    print('Neu gefundene Märkte:', len(ergebnisse))
+    print('Aktuell gefundene Märkte:', len(ergebnisse))
     print('Neue Marktseiten:', len(hinzu))
     print('Nicht mehr gefundene Marktseiten:', len(verschwunden))
     print('Veränderte Marktseiten:', len(veraendert))
