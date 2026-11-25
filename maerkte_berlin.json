@@ -1,7 +1,7 @@
 {
   "projekt": "Märkte Berlin",
-  "version": 2,
-  "erstellt_am": "2026-11-15T21:20:59",
+  "version": 3,
+  "erstellt_am": "2026-11-16T17:56:04",
   "anzahl": 26,
   "maerkte": [
     {
@@ -13,6 +13,8 @@
       ],
       "einzeltermine": [],
       "ausnahmen": [],
+      "ausnahme_regeln": [],
+      "zusatztermine_regeln": [],
       "pruefhinweise": [],
       "termintext": "Jeden Sonntag",
       "weitere_terminangaben": "Termine: Jeden Sonntag | Öffnungszeiten | 10 bis 18 Uhr | Eintritt",
@@ -29,6 +31,8 @@
       ],
       "einzeltermine": [],
       "ausnahmen": [],
+      "ausnahme_regeln": [],
+      "zusatztermine_regeln": [],
       "pruefhinweise": [],
       "termintext": "Jeden Sonntag",
       "weitere_terminangaben": "Termine: Jeden Sonntag | Öffnungszeiten | 10 bis 18 Uhr | Eintritt",
@@ -46,6 +50,8 @@
       ],
       "einzeltermine": [],
       "ausnahmen": [],
+      "ausnahme_regeln": [],
+      "zusatztermine_regeln": [],
       "pruefhinweise": [],
       "termintext": "Samstag und Sonntag",
       "weitere_terminangaben": "Termine: Samstag und Sonntag | Öffnungszeiten | Sommer: 9 bis 17 Uhr | Winter: 9 bis 16 Uhr",
@@ -68,9 +74,14 @@
         "2026-11-15",
         "2026-11-22"
       ],
+      "ausnahme_regeln": [
+        "kein_totensonntag",
+        "kein_volkstrauertag"
+      ],
+      "zusatztermine_regeln": [],
       "pruefhinweise": [
-        "Totensonntag prüfen",
-        "Volkstrauertag prüfen"
+        "Totensonntag beachten",
+        "Volkstrauertag beachten"
       ],
       "termintext": "Jeden Samstag und Sonntag (außer 19.09. und 20.09.2026 - Berliner Wahlen, 15.11.2026 - Volkstrauertag und 22.11. 2026 - Totensonntag)",
       "weitere_terminangaben": "Termine: Jeden Samstag und Sonntag (außer 19.09. und 20.09.2026 - Berliner Wahlen, 15.11.2026 - Volkstrauertag und 22.11. 2026 - Totensonntag) | Öffnungszeiten | 8 bis 16 Uhr | Eintritt",
@@ -87,6 +98,8 @@
       ],
       "einzeltermine": [],
       "ausnahmen": [],
+      "ausnahme_regeln": [],
+      "zusatztermine_regeln": [],
       "pruefhinweise": [],
       "termintext": "Jeden Sonntag",
       "weitere_terminangaben": "Termine: Jeden Sonntag | Öffnungszeiten | 8 bis 17 Uhr | Eintritt",
@@ -103,8 +116,12 @@
       ],
       "einzeltermine": [],
       "ausnahmen": [],
+      "ausnahme_regeln": [
+        "kein_totensonntag"
+      ],
+      "zusatztermine_regeln": [],
       "pruefhinweise": [
-        "Totensonntag prüfen"
+        "Totensonntag beachten"
       ],
       "termintext": "Jeden Sonntag außer am Totensonntag",
       "weitere_terminangaben": "Termine: Jeden Sonntag außer am Totensonntag | Öffnungszeiten | Sommer 10 bis 17 Uhr, Winter 10 bis 16 Uhr | Eintritt",
@@ -122,10 +139,18 @@
       ],
       "einzeltermine": [],
       "ausnahmen": [],
+      "ausnahme_regeln": [
+        "kein_totensonntag",
+        "kein_volkstrauertag",
+        "fehrbelliner_weihnachtspause"
+      ],
+      "zusatztermine_regeln": [
+        "ostermontag_mai1_pfingstmontag"
+      ],
       "pruefhinweise": [
-        "Totensonntag prüfen",
-        "Volkstrauertag prüfen",
-        "Weihnachtsregel prüfen"
+        "Totensonntag beachten",
+        "Volkstrauertag beachten",
+        "Weihnachtspause beachten"
       ],
       "termintext": "Jeden Samstag und Sonntag plus Ostermontag, 1. Mai und Pfingstmontag",
       "weitere_terminangaben": "Termine: Jeden Samstag und Sonntag plus Ostermontag, 1. Mai und Pfingstmontag | Geschlossen am Volkstrauertag, dem Totensonntag und zwischen Weihnachten und Silvester | Öffnungszeiten | 10 bis 16 Uhr",
@@ -143,8 +168,10 @@
       ],
       "einzeltermine": [],
       "ausnahmen": [],
+      "ausnahme_regeln": [],
+      "zusatztermine_regeln": [],
       "pruefhinweise": [
-        "Sommer-/Winterzeiten prüfen"
+        "Sommer-/Winteröffnungszeiten beachten"
       ],
       "termintext": "Samstag und Sonntag",
       "weitere_terminangaben": "Termine: Samstag und Sonntag | Öffnungszeiten | Samstag 10 bis 16 Uhr, Sonntag 11 bis 17 Uhr (Sommerzeit) und 11 bis 16 Uhr (Winterzeit) | Eintritt",
@@ -162,6 +189,10 @@
       ],
       "einzeltermine": [],
       "ausnahmen": [],
+      "ausnahme_regeln": [],
+      "zusatztermine_regeln": [
+        "berliner_feiertage"
+      ],
       "pruefhinweise": [
         "Feiertagsregel prüfen"
       ],
@@ -180,8 +211,12 @@
       ],
       "einzeltermine": [],
       "ausnahmen": [],
+      "ausnahme_regeln": [
+        "ostbahnhof_karlshorst_abgleich"
+      ],
+      "zusatztermine_regeln": [],
       "pruefhinweise": [
-        "Karlshorst-Ausnahme prüfen"
+        "Karlshorst-Termine abgleichen"
       ],
       "termintext": "Jeden Sonntag (außer an den Sonntagen an denen der Antikflohmarkt in Karlshorst stattfindet)",
       "weitere_terminangaben": "Termine: Jeden Sonntag (außer an den Sonntagen an denen der Antikflohmarkt in Karlshorst stattfindet) | Öffnungszeiten | 9 bis 17 Uhr | Eintritt",
@@ -198,9 +233,14 @@
       ],
       "einzeltermine": [],
       "ausnahmen": [],
+      "ausnahme_regeln": [
+        "kein_totensonntag",
+        "goerzallee_winterpause"
+      ],
+      "zusatztermine_regeln": [],
       "pruefhinweise": [
-        "Totensonntag prüfen",
-        "Winterpause prüfen"
+        "Totensonntag beachten",
+        "Winterpause beachten"
       ],
       "termintext": "Jeden Sonntag",
       "weitere_terminangaben": "Termine: Jeden Sonntag | Winterpause vom Totensonntag bis Ende Februar | Öffnungszeiten | 7 bis 14 Uhr",
@@ -217,6 +257,8 @@
       ],
       "einzeltermine": [],
       "ausnahmen": [],
+      "ausnahme_regeln": [],
+      "zusatztermine_regeln": [],
       "pruefhinweise": [],
       "termintext": "Jeden Samstag",
       "weitere_terminangaben": "Termine: Jeden Samstag | Öffnungszeiten | 10 bis 16 Uhr | Eintritt",
@@ -231,6 +273,8 @@
       "wochentage": [],
       "einzeltermine": [],
       "ausnahmen": [],
+      "ausnahme_regeln": [],
+      "zusatztermine_regeln": [],
       "pruefhinweise": [],
       "termintext": "",
       "weitere_terminangaben": "",
@@ -261,6 +305,8 @@
         "2026-12-06"
       ],
       "ausnahmen": [],
+      "ausnahme_regeln": [],
+      "zusatztermine_regeln": [],
       "pruefhinweise": [],
       "termintext": "",
       "weitere_terminangaben": "Termine 2026: 26. April, 10. Mai, 24. Mai, 7. Juni, 21. Juni, 05. Juli, 19. Juli, 30. August, 13. September, 27. September, 11. Oktober, 25. Oktober, 8. November, 22. November, 6. Dezember 2026 (jeden 2. Sonntag) | Öffnungszeiten | 10 bis 17 Uhr | Eintritt",
@@ -282,6 +328,8 @@
         "2026-11-29"
       ],
       "ausnahmen": [],
+      "ausnahme_regeln": [],
+      "zusatztermine_regeln": [],
       "pruefhinweise": [],
       "termintext": "",
       "weitere_terminangaben": "Termine 2026: In der Regel jeden zweiten Sonntag von Ende März bis Dezember. Nächste Termine 2026: 23. August, 6. September, 20. September, 4. Oktober, 1. November, 29. November | Öffnungszeiten | 10 bis 17 Uhr | Eintritt",
@@ -299,6 +347,8 @@
         "2026-12-13"
       ],
       "ausnahmen": [],
+      "ausnahme_regeln": [],
+      "zusatztermine_regeln": [],
       "pruefhinweise": [],
       "termintext": "",
       "weitere_terminangaben": "Termine 2026: 1. November, 13. Dezember | Öffnungszeiten | 10 bis 16 Uhr | Eintritt",
@@ -319,6 +369,8 @@
         "2026-12-13"
       ],
       "ausnahmen": [],
+      "ausnahme_regeln": [],
+      "zusatztermine_regeln": [],
       "pruefhinweise": [],
       "termintext": "",
       "weitere_terminangaben": "Termine 2026: 3. Mai, 5. Juli, 13. September, 1. November und 13. Dezember 2026 | Öffnungszeiten | In der Regel von 11 bis 19 Uhr | Eintritt",
@@ -333,6 +385,8 @@
       "wochentage": [],
       "einzeltermine": [],
       "ausnahmen": [],
+      "ausnahme_regeln": [],
+      "zusatztermine_regeln": [],
       "pruefhinweise": [],
       "termintext": "",
       "weitere_terminangaben": "",
@@ -347,6 +401,8 @@
       "wochentage": [],
       "einzeltermine": [],
       "ausnahmen": [],
+      "ausnahme_regeln": [],
+      "zusatztermine_regeln": [],
       "pruefhinweise": [],
       "termintext": "",
       "weitere_terminangaben": "Termine 2027: Noch nicht bekannt | Öffnungszeiten | Noch nicht bekannt | Eintritt",
@@ -361,6 +417,8 @@
       "wochentage": [],
       "einzeltermine": [],
       "ausnahmen": [],
+      "ausnahme_regeln": [],
+      "zusatztermine_regeln": [],
       "pruefhinweise": [],
       "termintext": "",
       "weitere_terminangaben": "Termine 2027: Noch nicht bekannt | Öffnungszeiten | 10 bis 14 Uhr | Eintritt",
@@ -375,6 +433,8 @@
       "wochentage": [],
       "einzeltermine": [],
       "ausnahmen": [],
+      "ausnahme_regeln": [],
+      "zusatztermine_regeln": [],
       "pruefhinweise": [],
       "termintext": "",
       "weitere_terminangaben": "Termine 2027: Noch nicht bekannt | Öffnungszeiten | 10:30 bis 14:30 Uhr | Eintritt",
@@ -389,6 +449,8 @@
       "wochentage": [],
       "einzeltermine": [],
       "ausnahmen": [],
+      "ausnahme_regeln": [],
+      "zusatztermine_regeln": [],
       "pruefhinweise": [],
       "termintext": "",
       "weitere_terminangaben": "Termine 2027: Noch nicht bekannt | Location | Fritz Heyn Höfe | Öffnungszeiten",
@@ -406,6 +468,8 @@
         "2027-06-06"
       ],
       "ausnahmen": [],
+      "ausnahme_regeln": [],
+      "zusatztermine_regeln": [],
       "pruefhinweise": [],
       "termintext": "",
       "weitere_terminangaben": "Termine 2027: 11. April und 6. Juni | Öffnungszeiten | 11 bis 14 Uhr | Eintritt",
@@ -420,6 +484,8 @@
       "wochentage": [],
       "einzeltermine": [],
       "ausnahmen": [],
+      "ausnahme_regeln": [],
+      "zusatztermine_regeln": [],
       "pruefhinweise": [],
       "termintext": "",
       "weitere_terminangaben": "Termine 2027: Noch nicht bekannt | Öffnungszeiten | 10 bis 17 Uhr | Eintritt",
@@ -434,6 +500,8 @@
       "wochentage": [],
       "einzeltermine": [],
       "ausnahmen": [],
+      "ausnahme_regeln": [],
+      "zusatztermine_regeln": [],
       "pruefhinweise": [],
       "termintext": "",
       "weitere_terminangaben": "Termine 2027: Noch nicht bekannt | Öffnungszeiten | 10 bis 17 Uhr | Eintritt",
@@ -456,6 +524,8 @@
         "2027-10-03"
       ],
       "ausnahmen": [],
+      "ausnahme_regeln": [],
+      "zusatztermine_regeln": [],
       "pruefhinweise": [],
       "termintext": "",
       "weitere_terminangaben": "Termine 2027: 6. bis 9. Mai 2027 zu Himmelfahrt | 1. bis 3. Oktober 2027 zum Tag der Deutschen Einheit und 15. Designbörse Berlin | Öffnungszeiten | Samstag und Sonntag von 9 bis 17 Uhr",
