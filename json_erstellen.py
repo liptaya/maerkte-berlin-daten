@@ -42,7 +42,7 @@ def ostersonntag(jahr):
 
 def totensonntag(jahr):
     weihnachten = date(jahr, 12, 25)
-    vierter_advent = weihnachten - timedelta(days=(weihnachten.weekday() + 1) % 7)
+    vierter_advent = weihnachten - timedelta(days=((weihnachten.weekday() + 1) % 7 or 7))
     return vierter_advent - timedelta(days=28)
 
 
@@ -219,7 +219,7 @@ def ist_termin(markt, tag, karlshorst_tage=None):
         return False
     if 'goerzallee_winterpause' in regeln:
         beginn = totensonntag(tag.year) if tag.month >= 3 else totensonntag(tag.year - 1)
-        if beginn <= tag <= date(beginn.year + 1, 2, 28 if (beginn.year + 1) % 4 else 29):
+        if beginn <= tag <= (date(beginn.year + 1, 3, 1) - timedelta(days=1)):
             return False
     if 'fehrbelliner_weihnachtspause' in regeln and tag.month == 12 and 25 <= tag.day <= 31:
         return False
@@ -280,6 +280,30 @@ def pruefe_beispiele(maerkte):
         raise ValueError('Terminprüfung fehlgeschlagen. JSON wird nicht ersetzt.')
 
 
+def uebernehme_bestaetigungen(maerkte):
+    datei = ORDNER / 'bestaetigte_termine.json'
+    eintraege = json.loads(datei.read_text(encoding='utf-8-sig'))
+    for markt in maerkte:
+        markt['bestaetigte_termine'] = []
+        markt['bestaetigungsnachweise'] = []
+    for eintrag in eintraege:
+        kandidaten = [m for m in maerkte if m['name'] == eintrag['name']]
+        if len(kandidaten) != 1:
+            raise ValueError('Bestätigungsmarkt nicht eindeutig: ' + eintrag['name'])
+        markt = kandidaten[0]
+        tag = date.fromisoformat(eintrag['datum'])
+        geprueft = date.fromisoformat(eintrag['geprueft_am'])
+        if not eintrag['quelle'].startswith('https://') or geprueft > date.today():
+            raise ValueError('Ungültiger Bestätigungsnachweis')
+        if ist_termin(markt, tag) is not True or 'ostbahnhof_karlshorst_abgleich' in markt['ausnahme_regeln']:
+            print('WARNUNG: Bestätigung wegen Terminregel nicht übernommen:', markt['name'], tag)
+            continue
+        if tag.isoformat() not in markt['bestaetigte_termine']:
+            markt['bestaetigte_termine'].append(tag.isoformat())
+            markt['bestaetigungsnachweise'].append(eintrag)
+    print('OK: Bestätigte Termine übernommen:', sum(len(m['bestaetigte_termine']) for m in maerkte))
+
+
 def main():
     print('MÄRKTE BERLIN – Sicherheitsprüfung\n')
     if not CSV_DATEI.is_file():
@@ -289,7 +313,8 @@ def main():
     if len(maerkte) < 20:
         raise ValueError('Zu wenige Märkte – JSON wird nicht ersetzt.')
     pruefe_beispiele(maerkte)
-    ausgabe = {'projekt':'Märkte Berlin', 'version':3,
+    uebernehme_bestaetigungen(maerkte)
+    ausgabe = {'projekt':'Märkte Berlin', 'version':4,
                'erstellt_am':datetime.now().isoformat(timespec='seconds'),
                'anzahl':len(maerkte), 'maerkte':maerkte}
     zwischen = JSON_DATEI.with_suffix('.json.tmp')
@@ -301,7 +326,7 @@ def main():
         if zwischen.exists():
             zwischen.unlink()
     print(f'\nFERTIG! {len(maerkte)} Märkte. Datei: {JSON_DATEI}')
-    print('WICHTIG: Termine sind noch ungeprüft; keine automatische Veröffentlichung.')
+    print('WICHTIG: Nur einzeln belegte Termine sind bestätigt; keine automatische Veröffentlichung.')
 
 
 try:
